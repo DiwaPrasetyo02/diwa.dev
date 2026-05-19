@@ -1,12 +1,7 @@
 export const SpinningBadge = () => {
   return (
     <div className="w-28 h-28 md:w-36 md:h-36 animate-spin-slow select-none pointer-events-none">
-      <svg
-        viewBox="0 0 200 200"
-        className="w-full h-full"
-        role="img"
-        aria-label="4+ years experience badge"
-      >
+      <svg viewBox="0 0 200 200" className="w-full h-full" role="img" aria-label="experience badge">
         <defs>
           <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
         </defs>
@@ -28,7 +23,7 @@ export const SpinningBadge = () => {
         />
         <text className="font-mono" fontSize="14" fontWeight="bold" fill="currentColor">
           <textPath href="#circlePath" startOffset="0%">
-            4+ YEARS EXPERIENCE • DEPLOYING SCALE • ZERO COMPROMISE •
+            AI ENGINEER • DATA DRIVEN • ML OPS •
           </textPath>
         </text>
         <text
@@ -40,7 +35,7 @@ export const SpinningBadge = () => {
           fontWeight="bold"
           fill="currentColor"
         >
-          FSR
+          DP
         </text>
       </svg>
     </div>

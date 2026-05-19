@@ -1,8 +1,6 @@
-# fiqri.dev
+# diwa.dev
 
-Personal portfolio website built with Astro, React, TailwindCSS, and Framer Motion.
-
-**Live:** [https://fiqri.dev](https://fiqri.dev)
+Personal portfolio website of **Diwa Prasetyo** — AI Engineer. Built with Astro, React, TailwindCSS, and Framer Motion.
 
 ## 🚀 Tech Stack
 
