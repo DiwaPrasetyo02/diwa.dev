@@ -6,14 +6,10 @@ export const GET: APIRoute = async ({ cookies }) => {
   const hasVisited = cookies.get("_dv")?.value;
 
   try {
-    const { Redis } = await import("@upstash/redis");
-    const redis = new Redis({
-      url: import.meta.env.UPSTASH_REDIS_REST_URL,
-      token: import.meta.env.UPSTASH_REDIS_REST_TOKEN,
-    });
+    const { kv } = await import("@vercel/kv");
 
     if (!hasVisited) {
-      await redis.incr("visitor_count");
+      await kv.incr("visitor_count");
       cookies.set("_dv", "1", {
         path: "/",
         maxAge: 86400,
@@ -22,7 +18,7 @@ export const GET: APIRoute = async ({ cookies }) => {
       });
     }
 
-    const count = (await redis.get<number>("visitor_count")) ?? 0;
+    const count = (await kv.get<number>("visitor_count")) ?? 0;
 
     return new Response(JSON.stringify({ count }), {
       headers: { "content-type": "application/json" },
