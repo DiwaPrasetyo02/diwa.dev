@@ -1,5 +1,6 @@
 ---
 import { portfolioData } from "../data/portfolio-data";
+import { VisitorCounter } from "../components/visitor-counter";
 
 const { personal } = portfolioData;
 ---
@@ -36,52 +37,65 @@ const { personal } = portfolioData;
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-        <a
-          href={personal.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
-        >
-          GitHub
-        </a>
-        <a
-          href={personal.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
-        >
-          LinkedIn
-        </a>
-        <a
-          href={personal.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
-        >
-          Instagram
-        </a>
-        <a
-          href={personal.facebook}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
-        >
-          Facebook
-        </a>
-        <a
-          href={personal.x}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
-        >
-          X (Twitter)
-        </a>
+        {personal.github && (
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
+          >
+            GitHub
+          </a>
+        )}
+        {personal.linkedin && (
+          <a
+            href={personal.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
+          >
+            LinkedIn
+          </a>
+        )}
+        {personal.instagram && (
+          <a
+            href={personal.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
+          >
+            Instagram
+          </a>
+        )}
+        {personal.facebook && (
+          <a
+            href={personal.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
+          >
+            Facebook
+          </a>
+        )}
+        {personal.x && (
+          <a
+            href={personal.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-5 py-3 font-mono text-sm font-bold border-4 border-black bg-bg-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-100"
+          >
+            X (Twitter)
+          </a>
+        )}
       </div>
 
-      <p class="mt-12 font-mono text-xs text-border-dark/60">
-        © {new Date().getFullYear()}
-        {personal.name}. Built with Astro, React & Tailwind CSS.
-      </p>
+      <div class="mt-12 flex items-center justify-center gap-4">
+        <p class="font-mono text-xs text-border-dark/60">
+          © {new Date().getFullYear()}
+          {personal.name}. Built with Astro, React & Tailwind CSS.
+        </p>
+        <VisitorCounter client:load />
+      </div>
     </div>
   </div>
 </footer>

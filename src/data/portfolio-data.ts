@@ -39,6 +39,7 @@ export type PortfolioData = {
     instagram: string;
     x: string;
     summary: string;
+    summaries: string[];
   };
   experience: Experience[];
   projects: Project[];
@@ -62,11 +63,16 @@ export const portfolioData: PortfolioData = {
     website: "https://github.com/DiwaPrasetyo02",
     github: "https://github.com/DiwaPrasetyo02",
     linkedin: "https://linkedin.com/in/diwa-prasetyo/",
-    facebook: "https://linkedin.com/in/diwa-prasetyo",
-    instagram: "https://linkedin.com/in/diwa-prasetyo",
-    x: "https://linkedin.com/in/diwa-prasetyo",
+    facebook: "",
+    instagram: "",
+    x: "",
     summary:
       "Experienced practitioner in AI and software development with a strong track record of building and deploying production-ready ML/DL systems. Skilled in developing CNN-based classifiers (90.2% accuracy), RAG pipelines, AI agent orchestration, OCR document processing, and XGBoost models (97% F1). Proficient in Python, PyTorch, FastAPI, LangChain, and Docker — from data preprocessing and model training to API integration and production deployment.",
+    summaries: [
+      "Experienced practitioner in AI and software development with a strong track record of building and deploying production-ready ML/DL systems. Skilled in developing CNN-based classifiers (90.2% accuracy), RAG pipelines, AI agent orchestration, OCR document processing, and XGBoost models (97% F1). Proficient in Python, PyTorch, FastAPI, LangChain, and Docker — from data preprocessing and model training to API integration and production deployment.",
+      "AI Engineer specialized in building production ML systems with Python, PyTorch, FastAPI, and LangChain. Experienced across the full ML lifecycle — data preprocessing, model training, API integration, and deployment. Built solutions in computer vision, NLP, RAG, OCR, and AI agent orchestration with measurable results.",
+      "Software engineering practitioner with deep expertise in AI — from computer vision (CNN, YOLO) and NLP (BERT, Transformers) to RAG pipelines, document processing, and agent orchestration. Proficient in Python, PyTorch, FastAPI, LangChain, and Docker with a focus on scalable, production-ready solutions.",
+    ],
   },
   experience: [
     {
