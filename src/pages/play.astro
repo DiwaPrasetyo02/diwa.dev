@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/layout.astro";
+import { CustomCursor } from "../components/custom-cursor";
+import { TypingGame } from "../partials/typing-game";
+---
+
+<Layout
+  title="Typing Test — Fiqri Syah Redha"
+  description="Test your typing speed with Indonesian words"
+>
+  <CustomCursor client:load />
+
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b-4 border-black bg-bg-base h-16">
+    <span
+      class="absolute top-2 left-3 font-mono text-[10px] text-border-dark/20 select-none pointer-events-none"
+      >&lt;nav&gt;</span
+    >
+    <div class="h-full max-w-7xl mx-auto px-4 flex items-center justify-end">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 px-5 py-2 font-heading font-bold text-sm border-4 border-black bg-secondary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-100"
+      >
+        <span class="text-base leading-none">←</span>
+        Home
+      </a>
+    </div>
+  </nav>
+
+  <main class="min-h-screen flex items-center justify-center px-4 pt-24 pb-20">
+    <TypingGame client:load />
+  </main>
+</Layout>
