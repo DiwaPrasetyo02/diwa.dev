@@ -24,6 +24,7 @@ export type Certification = {
   issuer: string;
   date: string;
   credentialLink: string;
+  summary: string;
 };
 
 export type PortfolioData = {
@@ -52,6 +53,12 @@ export type PortfolioData = {
     gpa?: string;
   };
   certifications: Certification[];
+  nowStatus: {
+    emoji: string;
+    activity: string;
+    subtext: string;
+    lastUpdated: string;
+  };
 };
 
 export const portfolioData: PortfolioData = {
@@ -302,80 +309,97 @@ export const portfolioData: PortfolioData = {
       id: "cert-mtcna",
       title: "MTCNA",
       issuer: "MikroTik",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://mikrotik.com/training",
+      summary: "Certified MikroTik network associate with hands-on experience in router configuration, firewall rules, and network management.",
     },
     {
       id: "cert-startup-campus",
       title: "Data Science and AI",
       issuer: "StartUp Campus",
       date: "2024",
-      credentialLink: "",
+      credentialLink: "https://startupcampus.id",
+      summary: "Completed intensive program covering data science fundamentals, machine learning algorithms, and AI application development.",
     },
     {
       id: "cert-fundamental-ai",
       title: "Fundamental of AI",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Foundational understanding of artificial intelligence concepts, including search algorithms, knowledge representation, and neural networks.",
     },
     {
       id: "cert-fundamental-sql",
       title: "Fundamental of SQL",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Proficient in SQL query writing, database design, data manipulation, and advanced querying techniques for relational databases.",
     },
     {
       id: "cert-fundamental-data-science",
       title: "Fundamental of Data Science",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Core data science skills including statistical analysis, data wrangling, exploratory data analysis, and data-driven decision making.",
     },
     {
       id: "cert-applied-data-science",
       title: "Applied Data Science",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Practical data science experience building end-to-end pipelines, from data collection and preprocessing to model deployment and monitoring.",
     },
     {
       id: "cert-git-github",
       title: "Git & GitHub",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Version control expertise including branching strategies, collaborative workflows, pull requests, and CI/CD integration with GitHub.",
     },
     {
       id: "cert-data-visualization",
       title: "Data Visualization",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Skilled in creating insightful data visualizations using various tools and libraries to communicate complex findings effectively.",
     },
     {
       id: "cert-ml-beginner",
       title: "Machine Learning for Beginner",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Introductory machine learning covering supervised and unsupervised learning, model evaluation, and hands-on implementation with Python.",
     },
     {
       id: "cert-ml-development",
       title: "Machine Learning Development",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Advanced ML development including feature engineering, hyperparameter tuning, ensemble methods, and production model optimization.",
     },
     {
       id: "cert-applied-ml",
       title: "Applied Machine Learning",
       issuer: "Dicoding",
-      date: "",
-      credentialLink: "",
+      date: "2024",
+      credentialLink: "https://www.dicoding.com/certificates",
+      summary: "Real-world ML project implementation covering the full lifecycle: problem framing, data preparation, modeling, evaluation, and deployment.",
     },
   ],
+  nowStatus: {
+    emoji: "🧠",
+    activity: "Building AI-powered document processing",
+    subtext: "Python · FastAPI · LangChain · PyTorch",
+    lastUpdated: "May 2026",
+  },
 };
 
 export const terminalStack: string[] = [

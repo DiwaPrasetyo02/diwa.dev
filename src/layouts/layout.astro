@@ -11,6 +11,9 @@ import "../styles/global.css";
 import SeoHead from "../components/seo-head.astro";
 import { ScrollToTop } from "../components/scroll-to-top";
 import { ThemeToggle } from "../components/theme-toggle";
+import { ScrollProgress } from "../components/scroll-progress";
+import { ClickParticles } from "../components/click-particles";
+import { KonamiEasterEgg } from "../components/konami-easter-egg";
 
 interface Props {
   title: string;
@@ -50,6 +53,9 @@ const { title, description, keywords, type } = Astro.props;
   <body
     class="bg-bg-base text-border-dark font-body antialiased overflow-x-hidden"
   >
+    <ScrollProgress client:load />
+    <ClickParticles client:load />
+    <KonamiEasterEgg client:load />
     <slot />
     <ScrollToTop client:load />
     <ThemeToggle client:load />

@@ -334,3 +334,46 @@
     color: #1e1e1e;
   }
 }
+
+/* ── Chaos Mode (Konami Code Easter Egg) ── */
+
+body.chaos-mode * {
+  /* biome-ignore lint/complexity/noImportantStyles: intentional chaos override */
+  cursor: grab !important;
+}
+
+body.chaos-mode *:active {
+  /* biome-ignore lint/complexity/noImportantStyles: intentional chaos override */
+  cursor: grabbing !important;
+}
+
+body.chaos-mode section,
+body.chaos-mode div,
+body.chaos-mode article,
+body.chaos-mode nav,
+body.chaos-mode footer,
+body.chaos-mode header {
+  /* biome-ignore lint/complexity/noImportantStyles: intentional chaos override */
+  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+body.chaos-mode .bg-primary {
+  animation: chaos-pulse 0.5s ease-in-out infinite alternate;
+}
+
+body.chaos-mode .bg-secondary {
+  animation: chaos-pulse 0.5s ease-in-out 0.15s infinite alternate;
+}
+
+body.chaos-mode .bg-accent {
+  animation: chaos-pulse 0.5s ease-in-out 0.3s infinite alternate;
+}
+
+@keyframes chaos-pulse {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.2);
+  }
+}

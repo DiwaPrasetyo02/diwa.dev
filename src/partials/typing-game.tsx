@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useReducer, useRef, useState } from "react";
 import { indonesianWords } from "../data/indonesian-words";
 import { cn } from "../lib/utils";
+import { burstConfetti } from "../lib/confetti";
 
 type GamePhase = "selecting" | "playing" | "finished";
 type GameMode = "time" | "words";
@@ -124,6 +125,7 @@ export const TypingGame = () => {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.repeat) return;
 
       const g = gameRef.current;
 
@@ -165,7 +167,7 @@ export const TypingGame = () => {
 
       if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
         e.preventDefault();
-        g.currentInput += e.key;
+        g.currentInput += e.key.toLowerCase();
 
         const cfg = configRef.current;
         if (cfg.mode === "words" && g.currentIndex === wordsRef.current.length - 1) {
@@ -187,6 +189,15 @@ export const TypingGame = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase === "finished") {
+      const finalWpm = calcWPM(correctChars, finalElapsedRef.current);
+      if (finalWpm >= 60) {
+        burstConfetti();
+      }
+    }
   }, [phase]);
 
   const g = gameRef.current;
@@ -311,7 +322,7 @@ export const TypingGame = () => {
 
             <div
               className={cn(
-                "font-mono text-xl md:text-2xl leading-relaxed",
+                "font-mono text-xl md:text-2xl leading-tight",
                 "flex flex-wrap gap-x-3 gap-y-2",
                 "min-h-[200px] select-none",
               )}
@@ -340,7 +351,7 @@ export const TypingGame = () => {
                   return (
                     <span
                       key={actualIndex}
-                      className="px-0.5 bg-border-dark/5 dark:bg-white/5 rounded-none"
+                      className="px-0.5 border-b-2 border-border-dark/10 dark:border-white/10"
                     >
                       {word.split("").map((char, j) => {
                         const isTyped = j < g.currentInput.length;

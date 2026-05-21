@@ -6,6 +6,8 @@ import ExperienceTimeline from "../partials/experience-timeline.astro";
 import FooterCta from "../partials/footer-cta.astro";
 import { ProjectGallery } from "../partials/project-gallery";
 import { SkillsChaos } from "../partials/skills-chaos";
+import { EducationSection } from "../partials/education-section";
+import { CertificationsStamps } from "../partials/certifications-stamps";
 import { RawModeToggle } from "../components/raw-mode-toggle";
 import { portfolioData } from "../data/portfolio-data";
 
@@ -21,6 +23,8 @@ const { personal } = portfolioData;
     <HeroSection />
     <MarqueeBanner />
     <ExperienceTimeline />
+    <EducationSection client:load />
+    <CertificationsStamps client:load />
     <ProjectGallery client:load />
     <SkillsChaos client:load />
   </main>
