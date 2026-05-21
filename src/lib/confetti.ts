@@ -1,7 +1,7 @@
 const COLORS = ["#ff90e8", "#ffc900", "#23a094", "#1e1e1e", "#ff6b6b"];
-const CONFETTI_COUNT = 60;
-const GRAVITY = 0.12;
-const DURATION = 3000;
+const CONFETTI_COUNT = 80;
+const GRAVITY = 0.15;
+const DURATION = 4000;
 
 type ConfettiPiece = {
   x: number;
@@ -31,13 +31,13 @@ export function burstConfetti(originX?: number, originY?: number) {
   const pieces: ConfettiPiece[] = [];
   for (let i = 0; i < CONFETTI_COUNT; i++) {
     const angle = Math.random() * Math.PI * 2;
-    const speed = 3 + Math.random() * 8;
+    const speed = 4 + Math.random() * 10;
     pieces.push({
       x: cx,
       y: cy,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed - 6,
-      size: 4 + Math.random() * 6,
+      size: 8 + Math.random() * 10,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
       rotation: Math.random() * 360,
       rotationSpeed: (Math.random() - 0.5) * 15,
@@ -62,7 +62,7 @@ export function burstConfetti(originX?: number, originY?: number) {
       p.y += p.vy;
       p.rotation += p.rotationSpeed;
 
-      const fadeStart = DURATION * 0.6;
+      const fadeStart = DURATION * 0.5;
       const fadeElapsed = Math.max(0, elapsed - fadeStart);
       const fadeDuration = DURATION - fadeStart;
       p.opacity = 1 - fadeElapsed / fadeDuration;

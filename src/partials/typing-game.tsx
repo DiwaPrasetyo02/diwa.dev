@@ -193,7 +193,14 @@ export const TypingGame = () => {
 
   useEffect(() => {
     if (phase === "finished") {
-      const finalWpm = calcWPM(correctChars, finalElapsedRef.current);
+      const g = gameRef.current;
+      let cChars = 0;
+      for (const w of g.completedWords) {
+        for (let i = 0; i < w.typed.length; i++) {
+          if (i < w.word.length && w.typed[i] === w.word[i]) cChars++;
+        }
+      }
+      const finalWpm = calcWPM(cChars, finalElapsedRef.current);
       if (finalWpm >= 60) {
         burstConfetti();
       }
